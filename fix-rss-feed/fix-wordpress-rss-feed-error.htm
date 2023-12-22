@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Wordpress how to correct rss feed in the Error on line 2: The processing instruction target matching [xX] [mM] [lL] is not allowed error? | Wordpress</title>
+<meta name="description" content="Wordpress how to correct rss feed in the Error on line 2: The processing instruction target matching is not allowed error?" />
+<meta name="keywords" content="burn feedburner rss feed error,firefox rss feed error,opera rss feed error,rss feed error,wordpress" />
+</head>
+
+<body>
+<h2>WordPress how to correct rss feed in the Error on line 2: The   processing instruction target matching “[xX] [mM] [lL]” is not allowed   error? </h2>
+<p>Today, I want to wordpress rss feed submitted to the <a href="http://www.feedburner.com" target="_blank">http://www.feedburner.com</a> to burn, but there was an error “Error on line 2: The processing instruction target matching “[xX][mM][lL]” is not allowed.</p>
+<p>In addition, In foxfire enter the feed address, also appeared “XML or   text declaration not at start of entity” error, and in opera appeared   “XML declaration not at beginning of document” error.</p>
+<p>Began looking for a solution, and find a feed validation site <a href="http://feedvalidator.org" target="_blank">http://feedvalidator.org</a>, it can not only find errors in your feed, but also it can tell you how to fix the error.</p>
+<p>I get an answer from the <a href="http://feedvalidator.org/docs/error/WPBlankLine.html" target="_blank">http://feedvalidator.org/docs/error/WPBlankLine.html</a>,   if an XML declaration (&lt;?xml … ?&gt;) appears in your feed, it must   be the first thing in the feed, before any whitespace, so the solution   is below:</p>
+<p>   1. Check and delete the wp-rss2.php and the file wp-atom.php In   &lt;? … ?&gt; Blank lines outside, if you still have problems, went to   step 2<br />
+     
+  2. Check and delete the wp-config.php file In &lt;? And   ?&gt; Blank lines outside, if you still have problems, go to the Step 3<br />
+   
+3.   Check and delete your template theme in the functions.php file In   &lt;?   … ?&gt; Blank lines outside, if there are still problems, to the first   step 4<br />
+   
+4. One by one too close to your plug-in, to see whether the   problem still exists, if there is no problem, they just now close the   plug-ins there is a problem of the php file to open it, and modify, so   that should be able to solve the problem.  </p>
+<p>I tried the above methods, final my feed is ok. Although the issue is   resolved, but this solution is the heavy workload, we must honestly   open each php file checks, revised again uploaded to the server,   activate the plug-in to see if there are problems.</p>
+<p>Are there other convenient way to do? The answer is yes, you can   develop a plug-in, this plug-in will find all of the php files to see   whether the head and tail of blank lines, if there are found, then   delete the blank lines, so that need not be so laborious.</p>
+<p>2008-12-30 has developed fix rss feed plug-in, you can go to <a href="../wordpress/plugins/fix-rss-feed-error-wordpress-plugins.htm">../wordpress/plugins/fix-rss-feed-error-wordpress-plugins.htm</a> download this plug-in.</p>
+</body>
+</html>
