@@ -4,19 +4,22 @@
     <script src="js/jquery.js"></script>
     <script type="text/javascript">
         $(function(){
+            var param1 = {
+                "operation": "read",
+                "payload": {
+                    "Key": {
+                        "id": "1data.txt"
+                    }
+                }
+            }
+
             $.ajax({
-                type:'post',
+                type:'POST',
                 async: false,
                 url:'https://hlfrfqkyjk.execute-api.us-east-1.amazonaws.com/test/DynamoDBManager',
                 dataType:'JSON',
-                data:{
-    operation: "read",
-    payload: {
-        Key: {
-            id: "1data.txt"
-        }
-    }
-}, 
+                data:JSON.stringify(param1), 
+                contentType: "application/json", 
                 success:function(result){
                     var json = JSON.parse(result);
                     for(var i = 0;i<json.length;i++){
