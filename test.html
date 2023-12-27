@@ -24,7 +24,7 @@
                     temp = '';
                     for(var i = 0;i<json.length;i++){
                     //    $("#list").append("<tr><td>"+json[i].Item.id+"</td><td>"+json[i].Item.type+"</td><td>"+json[i].Item.title+"</td><td>"+json[i].Item.content+"</td></tr>");
-                        temp = temp + ' '+ json[i].Item.id
+                        temp = temp + ' '+ json[i]
                     }
                     document.querySelector("div").innerHTML = temp;
                 }
