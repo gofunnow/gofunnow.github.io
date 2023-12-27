@@ -19,18 +19,21 @@
                 dataType:'JSON',
                 data:JSON.stringify(param1), 
                 contentType: "application/json", 
-                success:function(result){
-                    console.log(result.param);
-                    var json = JSON.parse(result);
-                    for(var i = 0;i<json.length;i++){
-                        $("#list").append("<tr><td>"+json[i].Item.id+"</td><td>"+json[i].Item.type+"</td><td>"+json[i].Item.title+"</td><td>"+json[i].Item.content+"</td></tr>");
-                    }
+                success:function(result){         
+                    document.querySelector("div").innerHTML = result;
+                    var json = JSON.parse(result);                    
+                    //for(var i = 0;i<json.length;i++){
+                    //    $("#list").append("<tr><td>"+json[i].Item.id+"</td><td>"+json[i].Item.type+"</td><td>"+json[i].Item.title+"</td><td>"+json[i].Item.content+"</td></tr>");
+                    //}
                 }
             });
         });
     </script>
 </head>
 <body>
+    <div style="width: 100px;height: 100px;border: 1px solid red">
+    
+    </div>
     <table id="list" cellspacing=0 cellpadding=0 border=1>
         <thead>
             <th>id</th>
