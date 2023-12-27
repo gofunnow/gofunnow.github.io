@@ -19,12 +19,14 @@
                 dataType:'JSON',
                 data:JSON.stringify(param1), 
                 contentType: "application/json", 
-                success:function(result){         
-                    document.querySelector("div").innerHTML = result;
-                    var json = JSON.parse(result);                    
-                    //for(var i = 0;i<json.length;i++){
+                success:function(result){                             
+                    var json = JSON.parse(result);         
+                    temp = '';
+                    for(var i = 0;i<json.length;i++){
                     //    $("#list").append("<tr><td>"+json[i].Item.id+"</td><td>"+json[i].Item.type+"</td><td>"+json[i].Item.title+"</td><td>"+json[i].Item.content+"</td></tr>");
-                    //}
+                        temp = temp + ' '+ json[i].Item.id
+                    }
+                    document.querySelector("div").innerHTML = temp;
                 }
             });
         });
