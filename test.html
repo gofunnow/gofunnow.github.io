@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            $.ajax({
+                type:'post',
+                async: false,
+                url:'https://hlfrfqkyjk.execute-api.us-east-1.amazonaws.com/test/DynamoDBManager',
+                dataType:'JSON',
+                data:{
+    "operation": "read",
+    "payload": {
+        "Key": {
+            "id": "1data.txt"
+        }
+    }
+}, 
+                success:function(result){
+                    var json = JSON.parse(result);
+                    for(var i = 0;i<json.length;i++){
+                        $("#list").append("<tr><td>"+json[i].Item.id+"</td><td>"+json[i].Item.type+"</td><td>"+json[i].Item.title+"</td><td>"+json[i].Item.content+"</td></tr>");
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <table id="list" cellspacing=0 cellpadding=0 border=1>
+        <thead>
+            <th>id</th>
+            <th>type</th>
+            <th>title</th>
+            <th>content</th>
+        </thead>
+    </table>
+</body>
+</html>
