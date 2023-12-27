@@ -1,6 +1,5 @@
 <html>
 <head>
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
     <script src="js/jquery.js"></script>
     <script type="text/javascript">
         $(function(){
@@ -21,6 +20,7 @@
                 data:JSON.stringify(param1), 
                 contentType: "application/json", 
                 success:function(result){
+                    console.log(result.param);
                     var json = JSON.parse(result);
                     for(var i = 0;i<json.length;i++){
                         $("#list").append("<tr><td>"+json[i].Item.id+"</td><td>"+json[i].Item.type+"</td><td>"+json[i].Item.title+"</td><td>"+json[i].Item.content+"</td></tr>");
